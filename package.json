@@ -1,0 +1,46 @@
+{
+  "name": "bizpilot-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Business management and cash-flow intelligence for small retailers in Ghana.",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run test:unit",
+    "test:unit": "node --import tsx --test \"tests/unit/**/*.test.ts\"",
+    "test:db": "bash scripts/test-db.sh",
+    "test:all": "npm run typecheck && npm run test:unit && npm run test:db",
+    "db:types": "supabase gen types typescript --local > src/lib/supabase/database.types.ts",
+    "check": "npm run typecheck && npm run lint && npm run test:unit"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.76.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.548.0",
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "recharts": "^3.3.0",
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "^16.0.0",
+    "tailwindcss": "^4.1.16",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
