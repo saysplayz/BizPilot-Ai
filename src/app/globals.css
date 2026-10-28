@@ -1,0 +1,76 @@
+/* BizPilot AI · Part 4 — Frontend & UI/UX
+   Owner: Member 4 (see TEAM.md) */
+@import "tailwindcss";
+
+/*
+ * BizPilot design tokens. Calm, trustworthy fintech palette:
+ * deep navy text, white surfaces, teal for positive, amber for warnings,
+ * red for real risk. Colour is never the only signal (icons + words too).
+ */
+@theme {
+  --color-ink: #0f1b2d;
+  --color-ink-soft: #3b4a63;
+  --color-ink-muted: #64748b;
+  --color-canvas: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-line: #e2e8f0;
+  --color-line-strong: #cbd5e1;
+
+  --color-brand: #0f766e;
+  --color-brand-strong: #115e59;
+  --color-brand-soft: #e6f4f2;
+
+  --color-positive: #047857;
+  --color-positive-soft: #ecfdf5;
+  --color-warning: #b45309;
+  --color-warning-soft: #fffbeb;
+  --color-danger: #b91c1c;
+  --color-danger-soft: #fef2f2;
+  --color-info: #1d4ed8;
+  --color-info-soft: #eff6ff;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  --radius-card: 0.875rem;
+  --shadow-card: 0 1px 2px rgb(15 27 45 / 0.04), 0 1px 3px rgb(15 27 45 / 0.06);
+  --shadow-pop: 0 10px 30px rgb(15 27 45 / 0.12);
+
+  --animate-fade-in: fade-in 160ms ease-out;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(2px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-canvas text-ink antialiased;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+  /* Money always aligns in columns. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  dialog::backdrop {
+    background: rgb(15 27 45 / 0.45);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}
