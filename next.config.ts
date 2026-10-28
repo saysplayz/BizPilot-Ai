@@ -1,5 +1,3 @@
-// BizPilot AI · Part 1 — Database & Security
-// Owner: Member 1 (see TEAM.md)
 import type { NextConfig } from "next";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
