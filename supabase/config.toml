@@ -1,0 +1,14 @@
+# BizPilot AI · Part 1 — Database & Security
+# Owner: Member 1 (see TEAM.md)
+# Supabase CLI configuration for LOCAL development (`npx supabase start`).
+# Only settings that differ from the CLI defaults are listed. Hosted projects
+# are configured in the Supabase dashboard (see README → Supabase setup).
+project_id = "bizpilot-ai"
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/auth/callback"]
+
+[auth.email]
+# Local only: sign-up goes straight to onboarding. Keep confirmations ON in production.
+enable_confirmations = false
